@@ -1,0 +1,5 @@
+package com.ibanking.javaFunctionalinterface;
+
+public class LoanType {
+
+}
