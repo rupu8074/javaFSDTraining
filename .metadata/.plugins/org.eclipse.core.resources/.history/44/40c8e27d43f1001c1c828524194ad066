@@ -1,0 +1,16 @@
+package com.dateTime;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
+public class DateTimeExp {
+	public static void main(String args[]) {
+		
+	LocalTime localTime = LocalTime.now();
+	System.out.println("localTime is " + localTime);
+	
+	LocalDate localDate = LocalDate.now();
+	System.out.println("local Date is " + localDate);
+	}
+}

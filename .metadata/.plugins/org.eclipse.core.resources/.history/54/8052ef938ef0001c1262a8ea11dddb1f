@@ -1,0 +1,8 @@
+package com.fruits;
+
+public class fruitsPojo {
+	private String color;
+	private int weight;
+	private String name;
+	private int price;
+}

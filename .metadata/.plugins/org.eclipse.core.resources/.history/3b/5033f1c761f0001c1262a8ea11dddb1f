@@ -1,0 +1,13 @@
+package com.ibanking.javaFunctionalInterface;
+
+public class LoanCalculatorImpl {
+
+	String findHighestLoanAmountWithCustomerName(Loan a) {
+		a.createLoan();
+		return null;
+	}
+	String findHighestLoanAmountWithCustomerNameAndGender(Loan b) {
+		b.createLoan();
+		return null;
+	}
+}

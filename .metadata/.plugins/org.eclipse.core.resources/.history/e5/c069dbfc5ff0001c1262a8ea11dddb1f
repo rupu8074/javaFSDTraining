@@ -1,0 +1,10 @@
+package com.ibanking.javaFunctionalInterface;
+
+public class LoanProcessorClient {
+	public static void main(String args[]) {
+		Loan loan = ()->{
+			return "abc";
+		};
+		loan.createLoan();
+	}
+}

@@ -1,0 +1,19 @@
+package com.employee;
+
+import java.util.Random;
+
+public class EmployeeManagementImpl {
+	
+	public int generateEmpId() {
+		Random rm = new Random();
+		int empId=rm.nextInt(1000);
+		return empId;
+	}
+	EmployeePojo saveEmployee(EmployeePojo employeeObj)
+	{
+		int empId =generateEmpId();
+		employeeObj.setEmpId(empId);
+		employeeObj.setStatus('s');
+		return employeeObj;
+	}
+}

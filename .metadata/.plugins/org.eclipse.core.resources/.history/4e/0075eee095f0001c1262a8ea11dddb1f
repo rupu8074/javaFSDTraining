@@ -1,0 +1,31 @@
+package com.fruits;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class fruitsList {
+
+	public static void main(String args[]) {
+		List<FruitsPojo> fruitsList = new ArrayList<>();
+		FruitsPojo fruitsPojo = new FruitsPojo();
+		fruitsPojo.setColor("green");
+		fruitsPojo.setName("Apple");
+		fruitsPojo.setPrice(50);
+		fruitsPojo.setWeight(200);
+		FruitsPojo fruitsPojo1 = new FruitsPojo();
+		fruitsPojo.setColor("yellow");
+		fruitsPojo.setName("Banana");
+		fruitsPojo.setPrice(50);
+		fruitsPojo.setWeight(200);
+		fruitsList.add(fruitsPojo);
+		fruitsList.add(fruitsPojo1);
+		fruits fruit = (fruitsObj) -> {
+			if (fruitsObj.getName().equals("Apple") && fruitsObj.getWeight() >= 250) {
+				return fruitsObj.getName();
+			}
+			return null;
+		};
+
+	}
+
+}

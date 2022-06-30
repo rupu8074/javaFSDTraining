@@ -1,0 +1,23 @@
+package com.icici.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="order")
+public class Order {
+
+	@Column(name="order_id")
+	private int orderId;
+	
+	@Column(name="order_id")
+	private String orderName;
+	
+	@Column(name="order_id")
+	private double amount;
+	
+	@Column(name="order_id")
+	private String status;
+	
+}

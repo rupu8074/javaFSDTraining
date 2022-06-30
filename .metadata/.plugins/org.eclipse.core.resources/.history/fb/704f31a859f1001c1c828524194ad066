@@ -1,0 +1,11 @@
+package com.order;
+
+import java.util.Date;
+
+public class OrderPojo {
+
+	private String orderName;
+	private int amount;
+	private String status;
+	Date orderDate = new Date();
+}

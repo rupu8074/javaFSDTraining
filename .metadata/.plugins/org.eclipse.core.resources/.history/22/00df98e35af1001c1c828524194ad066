@@ -1,0 +1,12 @@
+package com.order;
+
+import java.util.Optional;
+
+public class OrderImpl {
+
+	Optional<OrderPojo> orderNow(OrderPojo orderPojo){
+
+		Optional<OrderPojo> orderObj = Optional.of(orderPojo);
+		
+	}
+}

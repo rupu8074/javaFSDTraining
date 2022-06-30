@@ -1,0 +1,19 @@
+package com.ibanking.javaFunctionalInterface;
+
+public class PersonalLoan implements Loan {
+
+	@Override
+	public String LoanExample() {
+
+		//code to implement
+		
+		return "123";
+	}
+
+	@Override
+	public int addedExample() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

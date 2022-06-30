@@ -1,0 +1,58 @@
+package com.icici.entity;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.icici.pojo.OrderPojo;
+
+public class OrderManagementImpl {
+
+	public void createOrder(Order order) {
+		EntityManagerFactory emf = null;
+		EntityManager entityManager = null;
+		EntityTransaction transaction = null;
+		try {
+			emf = Persistence.createEntityManagerFactory("corebanking");
+			entityManager = emf.createEntityManager();
+
+			transaction = entityManager.getTransaction();
+
+			// start transaction
+			transaction.begin();
+
+			// entity
+			order.setOrderName(order.getOrderName());
+			order.setAmount(order.getAmount());
+			// save call
+			entityManager.persist(order);
+
+			transaction.commit();
+			entityManager.close();
+
+			System.out.println("Order saved   successfull....");
+
+		} catch (Exception e) {
+			System.out.println(e);
+			transaction.rollback();
+		} finally {
+			if (transaction != null && transaction.isActive()) {
+				transaction.commit();
+			}
+			if (entityManager != null) {
+				entityManager.close();
+			}
+			if (emf != null) {
+				emf.close();
+			}
+		}
+	}
+	
+	
+	Order getOrder() {
+		OrderPojo order = new OrderPojo();
+		
+	}
+
+}

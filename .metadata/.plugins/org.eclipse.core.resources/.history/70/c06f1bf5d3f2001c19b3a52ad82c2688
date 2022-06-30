@@ -1,0 +1,120 @@
+package com.icici.entity;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.icici.pojo.OrderPojo;
+
+public class OrderManagementImpl {
+
+	EntityManagerFactory emf = null;
+	EntityManager entityManager = null;
+	EntityTransaction transaction = null;
+
+	EntityManager getEntityManager() {
+		try {
+			emf = Persistence.createEntityManagerFactory("corebanking");
+			entityManager = emf.createEntityManager();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return entityManager;
+	}
+
+	void closeEntityManagerFactory() {
+		if (emf != null) {
+			emf.close();
+		}
+
+	}
+
+	void closeEntityManager() {
+		if (entityManager != null) {
+			entityManager.close();
+		}
+
+	}
+
+	public void createOrder(Order order) {
+		getEntityManager();
+		try {
+			OrderSequenceGen orderSeq = entityManager.find(OrderSequenceGen.class, 1);
+			int orderSeqId = orderSeq.getOrder_current_value();
+			int orderId = orderSeqId + 1;
+			order.setOrderId(orderId);
+			// entity
+			order.setOrderName(order.getOrderName());
+			order.setAmount(order.getAmount());
+			// save call
+			//entityManager.persist(order);
+			System.out.println(order);
+			transaction.commit();
+			entityManager.close();
+
+			System.out.println("Order saved   successfull....");
+
+		} catch (Exception e) {
+			System.out.println(e);
+
+		} finally {
+			closeEntityManagerFactory();
+			closeEntityManager();
+
+		}
+	}
+
+	Order getOrder(int orderId) {
+		Order order = null;
+		getEntityManager();
+		try {
+			System.out.println(orderId);
+			order = entityManager.find(Order.class, orderId);
+			System.out.println(order);
+			System.out.println("OrderSaved Success");
+		} catch (Exception e) {
+			System.out.println(e);
+			transaction.rollback();
+		} finally {
+			closeEntityManagerFactory();
+			closeEntityManager();
+
+		}
+		return order;
+
+	}
+
+	Order updateOrder(Order order) {
+
+		try {
+			getEntityManager();
+			transaction = entityManager.getTransaction();
+			transaction.begin();
+			int orderId = order.getOrderId();
+			System.out.println("order details is " + order);
+			order = entityManager.find(Order.class, orderId);
+			if (order == null) {
+				System.out.println("Order not Available");
+			} else {
+				System.out.println("order details is " + order);
+				order.setOrderName("Headsets");
+				order.setAmount(1500);
+				order.setStatus("Successfully ordered Headsets");
+			}
+			transaction.commit();
+		} catch (Exception e) {
+			System.out.println(e);
+			if (transaction != null) {
+				transaction.rollback();
+			}
+		} finally {
+			closeEntityManagerFactory();
+			closeEntityManager();
+
+		}
+		return order;
+
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.employee;
+
+public class EmployeeImplClient {
+	public static void main(String args[]) {
+		EmployeeManagementImpl employeeMgmt = new EmployeeManagementImpl();
+
+		EmployeePojo employeePojo = new EmployeePojo();
+		employeePojo.setEmpName("Deepali");
+		employeePojo.setAge((byte) 21);
+		employeePojo = employeeMgmt.saveEmployee(employeePojo);
+		if(employeePojo !=null) {
+			System.out.println(employeePojo.getEmpId());
+			System.out.println(employeePojo.getEmpName());
+			System.out.println(employeePojo.getStatus());
+
+		}
+	}
+	
+}

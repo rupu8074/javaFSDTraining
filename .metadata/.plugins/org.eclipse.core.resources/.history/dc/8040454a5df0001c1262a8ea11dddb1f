@@ -1,0 +1,13 @@
+package com.ibanking.javaFunctionalInterface;
+
+public class GoldLoanImpl implements Loan {
+
+	@Override
+	public String LoanExample() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}

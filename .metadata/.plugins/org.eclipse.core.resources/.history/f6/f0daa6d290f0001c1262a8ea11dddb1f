@@ -1,0 +1,16 @@
+package com.fruits;
+
+public class fruitsList implements fruits {
+
+	public String createFruitList() {
+		FruitsPojo fruitsPojo = new FruitsPojo();
+		fruitsPojo.setColor("black");
+		fruitsPojo.setName("Apple");
+		fruitsPojo.setPrice(50);
+		fruitsPojo.setWeight(200);
+		return null;
+	}
+
+	
+	
+}

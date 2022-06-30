@@ -1,0 +1,16 @@
+package com.ibanking.javaFunctionalInterface;
+
+public class LoanProcessorClient {
+	public static void main(String args[]) {
+		Loan loan = () -> {
+			System.out.println("lamda function");
+			return "lamda";
+		};
+		loan.createLoan();
+		LoanCalculatorImpl loanCal=new LoanCalculatorImpl();
+		loanCal.findHighestLoanAmountWithCustomerName(loan);
+		loanCal.findHighestLoanAmountWithCustomerNameAndGender(loan);
+
+	}
+	
+}

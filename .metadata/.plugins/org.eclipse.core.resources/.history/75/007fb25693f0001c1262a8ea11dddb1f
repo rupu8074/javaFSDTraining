@@ -1,0 +1,20 @@
+package com.fruits;
+
+
+public class fruitsList {
+
+	public static void main(String args[]) {
+		FruitsPojo fruitsPojo = new FruitsPojo();
+		fruitsPojo.setColor("green");
+		fruitsPojo.setName("Apple");
+		fruitsPojo.setPrice(50);
+		fruitsPojo.setWeight(200);
+		fruits fruit = (fruitsObj) -> {
+			fruitsObj.getName()		}
+			
+	}
+
+	
+	
+	
+}

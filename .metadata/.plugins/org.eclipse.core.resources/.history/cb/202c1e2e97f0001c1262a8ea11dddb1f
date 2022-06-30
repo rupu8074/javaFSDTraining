@@ -1,0 +1,39 @@
+package com.fruits;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class fruitsList {
+
+	public static void main(String args[]) {
+		List<FruitsPojo> fruitsList = new ArrayList<>();
+		FruitsPojo fruitsPojo = new FruitsPojo();
+		fruitsPojo.setColor("green");
+		fruitsPojo.setName("Apple");
+		fruitsPojo.setPrice(50);
+		fruitsPojo.setWeight(200);
+		FruitsPojo fruitsPojo1 = new FruitsPojo();
+		fruitsPojo.setColor("yellow");
+		fruitsPojo.setName("Banana");
+		fruitsPojo.setPrice(50);
+		fruitsPojo.setWeight(200);
+		FruitsPojo fruitsPojo2 = new FruitsPojo();
+		fruitsPojo.setColor("Red");
+		fruitsPojo.setName("Apple");
+		fruitsPojo.setPrice(90);
+		fruitsPojo.setWeight(350);
+		fruitsList.add(fruitsPojo);
+		fruitsList.add(fruitsPojo1);
+		fruitsList.add(fruitsPojo2);
+
+		Stream<FruitsPojo> stream1 = fruitsList.stream();
+		
+
+		List<FruitsPojo> evenNumbersList = stream1.filter(fruitsLists -> (fruitsLists.getName()== "Apple" && fruitsLists.getWeight()>=250))
+		                                    .collect(Collectors.toList());
+
+	}
+
+}
